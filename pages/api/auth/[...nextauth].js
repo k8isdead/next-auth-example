@@ -1,14 +1,15 @@
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import GitHubProvider from "next-auth/providers/github";
 
-export default NextAuth({
+const createOptions = (req) => ({
   providers: [
-    Providers.GitHub({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
       redirectUri:
-        "https://next-auth-test-rewrites.vercel.app/dev-days-test/api/auth/signin/github",
+        "https://next-auth-test-rewrites.vercel.app/dev-days-test/api/auth/callback/github",
     }),
   ],
-  // ...
 });
+
+export default async (req, res) => NextAuth(req, res, createOptions(req));
