@@ -6,6 +6,7 @@ const createOptions = (req) => ({
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
+      callbackUrl: process.env.NEXTAUTH_URL + "/callback/github",
     }),
   ],
   callbacks: {
