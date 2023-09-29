@@ -25,10 +25,7 @@ export default function Header() {
               <span className={styles.notSignedInText}>
                 You are not signed in
               </span>
-              <a
-                href={`/dev-days-test/api/auth/signin`}
-                className={styles.buttonPrimary}
-              >
+              <a href={`/api/auth/signin`} className={styles.buttonPrimary}>
                 Sign in
               </a>
             </>
