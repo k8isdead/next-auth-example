@@ -8,6 +8,12 @@ const createOptions = (req) => ({
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  callbacks: {
+    async redirect(url, baseUrl) {
+      return baseUrl ? baseUrl : url;
+    },
+  },
+  baseUrl: process.env.NEXTAUTH_URL,
 });
 
 export default async (req, res) => NextAuth(req, res, createOptions(req));
