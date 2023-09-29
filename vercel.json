@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/dev-days-test/api/auth/:path*",
+      "destination": "/dev-days-test/api/auth/:path*"
+    }
+  ]
+}
